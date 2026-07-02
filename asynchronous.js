@@ -77,3 +77,54 @@
 /*******************************************************
  To over come the callback hell we are will go with Promise
  ******************************************************/
+function login(){
+  return new Promise((res) => {
+    setTimeout(() => {
+      console.log("user logged in");
+      res()
+    },1000)
+  })
+}
+
+function getProfile(){
+  return new Promise((res) => {
+    setTimeout(() =>{
+      console.log("Profile fetch")
+      res()
+    },1000)
+  })
+}
+
+function getOrder(){
+  return new Promise((res) => {
+    setTimeout(() => {
+      console.log("Order fetch")
+      res()
+    },1000)
+  })
+}
+
+function payment(){
+  return new Promise((res) => {
+    setTimeout(() => {
+      console.log("Pamyment Done");
+      res()
+    },1000)
+  })
+}
+
+login()
+      .then(getProfile)
+      .then(getOrder)
+      .then(payment)
+      .then(() => {
+        console.log("Complete");
+      })
+
+  fetch('https://bhagavadgita.com/api')
+          .then((data) => {
+          console.log(data)
+          })
+          .catch((error) => {
+              console.log(error);    
+          })
